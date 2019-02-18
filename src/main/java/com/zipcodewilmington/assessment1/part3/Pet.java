@@ -8,7 +8,7 @@ public abstract class Pet implements Animal {
      * nullary constructor
      * by default, pet has age of 0; name of "";
      */
-    private Integer age;
+    private int age;
     private String name;
     private PetOwner petOwner;
 
