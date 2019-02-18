@@ -1,15 +1,18 @@
 package com.zipcodewilmington.assessment1.part3;
 
+import java.security.acl.Owner;
+
 /**
  * Created by leon on 2/16/18.
  */
 public class PetOwner {
+
     /**
      * @param name name of the owner of the Pet
      * @param pets array of Pet object
      */
-    private String name;
-    private Pet[] pets;
+    public String name;
+    public Pet[] pets;
 
     public PetOwner(String name, Pet... pets) {
         this.name = name;
