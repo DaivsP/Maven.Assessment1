@@ -1,5 +1,8 @@
 package com.zipcodewilmington.assessment1.part2;
 
+import java.util.LinkedList;
+import java.util.List;
+
 /**
  * Created by leon on 2/16/18.
  */
@@ -11,7 +14,13 @@ public class ArrayUtils {
      * Given an array of objects, named `objectArray`, and an object `objectToCount`, return the number of times the `objectToCount` appears in the `objectArray`
      */
     public static Integer getNumberOfOccurrences(Object[] objectArray, Object objectToCount) {
-        return null;
+        Integer counter = 0;
+        for (int i = 0; i < objectArray.length; i++) {
+            if (objectToCount.equals(objectArray[i])){
+                counter++;
+            }
+        }
+        return counter;
     }
 
     /**
