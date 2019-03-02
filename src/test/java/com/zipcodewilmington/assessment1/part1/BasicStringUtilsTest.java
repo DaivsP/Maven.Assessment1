@@ -64,7 +64,7 @@ public class BasicStringUtilsTest {
     @Test
     public void invertCasingTest1() {
         // Given
-        String input = "tHE quiCK brOwN";
+        String input =    "tHE quiCK brOwN";
         String expected = "The QUIck BRoWn";
 
         // When

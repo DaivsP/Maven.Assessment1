@@ -1,5 +1,8 @@
 package com.zipcodewilmington.assessment1.part1;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 /**
  * Created by leon on 2/16/18.
  */
@@ -48,6 +51,7 @@ public class BasicStringUtils {
      */
     public static String invertCasing(String str) {
             char[] chars = str.toCharArray();
+            new ArrayList<String>();
             for (int i = 0; i < chars.length; i++)
             {
                 char c = chars[i];
@@ -55,7 +59,7 @@ public class BasicStringUtils {
                 {
                     chars[i] = Character.toLowerCase(c);
                 }
-                else if (Character.isLowerCase(c))
+                else //if (Character.isLowerCase(c))
                 {
                     chars[i] = Character.toUpperCase(c);
                 }

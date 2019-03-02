@@ -1,9 +1,7 @@
 package com.zipcodewilmington.assessment1.part2;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
+import java.lang.reflect.MalformedParameterizedTypeException;
+import java.util.*;
 
 /**
  * Created by leon on 2/16/18.
@@ -32,7 +30,18 @@ public class ArrayUtils {
      * Given an array of objects, name `objectArray`, and an object `objectToRemove`, return an array of objects with identical contents excluding `objectToRemove`
      */
     public static Object[] removeValue(Object[] objectArray, Object objectToRemove) {
-        return null;
+        ArrayList<Object> returnList = new ArrayList<Object>();
+        Object[] intArray;
+        for (int i = 0; i < objectArray.length; i++) {
+            if (!objectArray[i].equals(objectToRemove)){
+                returnList.add(objectArray[i]);
+            }
+        }
+        intArray = new Integer[returnList.size()];
+        for (int i = 0; i < intArray.length; i++) {
+            intArray[i] = returnList.get(i);
+        }
+        return intArray;
     }
 
     /**
@@ -41,7 +50,25 @@ public class ArrayUtils {
      * given an array of objects, named `objectArray` return the most frequently occuring object in the array
      */
     public static Object getMostCommon(Object[] objectArray) {
-        return null;
+        Map<Object, Integer> map = new TreeMap<Object, Integer>();
+        for (int i = 0; i < objectArray.length; i++) {
+            if (map.containsKey(objectArray[i])){
+                map.put(objectArray[i],new Integer(map.get(objectArray[i]) + 1));
+            }
+            else {
+                map.put(objectArray[i], new Integer(1));
+            }
+        }
+        Integer highestCount = 0;
+        Object mostCommon = null;
+        for (Object object : map.keySet()) {
+            Integer counter = (map.get(object));
+            if (counter > highestCount){
+                highestCount = counter;
+                mostCommon = object;
+            }
+        }
+        return mostCommon;
     }
 
 

@@ -27,14 +27,8 @@ public class IntegerUtils {
      * @return integer with identical digits in the reverse order
      */
     public static Integer reverseDigits(Integer val) {
-        long reversedNum = 0;
-        long input_long = val;
-
-        while (input_long != 0){
-            reversedNum = reversedNum * 10 + input_long % 10;
-            input_long = input_long / 10;
-        }
-
-        return  (int)reversedNum;
+        String valStr = val.toString();
+        String reversed = BasicStringUtils.reverse(valStr);
+        return Integer.parseInt(reversed);
     }
 }
