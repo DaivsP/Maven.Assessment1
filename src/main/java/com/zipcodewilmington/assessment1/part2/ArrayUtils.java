@@ -50,15 +50,7 @@ public class ArrayUtils {
      * given an array of objects, named `objectArray` return the most frequently occuring object in the array
      */
     public static Object getMostCommon(Object[] objectArray) {
-        Map<Object, Integer> map = new TreeMap<Object, Integer>();
-        for (int i = 0; i < objectArray.length; i++) {
-            if (map.containsKey(objectArray[i])){
-                map.put(objectArray[i],new Integer(map.get(objectArray[i]) + 1));
-            }
-            else {
-                map.put(objectArray[i], new Integer(1));
-            }
-        }
+        Map<Object, Integer> map = makeMapOfCounters(objectArray);
         Integer highestCount = 0;
         Object mostCommon = null;
         for (Object object : map.keySet()) {
@@ -78,8 +70,35 @@ public class ArrayUtils {
      * given an array of objects, named `objectArray` return the least frequently occuring object in the array
      */
     public static Object getLeastCommon(Object[] objectArray) {
-        return null;
+
+        Map<Object, Integer> map = makeMapOfCounters(objectArray);
+        Integer highestCount = null;
+        Object leastCommon = null;
+        for (Object object : map.keySet()) {
+            Integer counter = (map.get(object));
+            if(highestCount==null)
+                highestCount = counter;
+            if (counter < highestCount){
+                highestCount = counter;
+                leastCommon = object;
+            }
+        }
+        return leastCommon;
     }
+
+    private static Map<Object, Integer> makeMapOfCounters(Object[] objectArray) {
+        Map<Object, Integer> map = new TreeMap<>();
+        for (int i = 0; i < objectArray.length; i++) {
+            if (map.containsKey(objectArray[i])){
+                map.put(objectArray[i],new Integer(map.get(objectArray[i]) + 1));
+            }
+            else {
+                map.put(objectArray[i], new Integer(1));
+            }
+        }
+        return map;
+    }
+
 
     /**
      * @param objectArray      an array of any type of Object
@@ -88,7 +107,19 @@ public class ArrayUtils {
      * given two arrays `objectArray` and `objectArrayToAdd`, return an array containing all elements in `objectArray` and `objectArrayToAdd`
      */
     public static Object[] mergeArrays(Object[] objectArray, Object[] objectArrayToAdd) {
-
-        return null;
+        List<Object> objectArrayList = new ArrayList<>();
+        /*for (Object object: objectArray) {
+            objectArrayList.add(object);
+        }
+        for (Object object : objectArrayToAdd) {
+            objectArrayList.add(object);
+        }*/
+        objectArrayList.addAll(new ArrayList<>(Arrays.asList(objectArray)));
+        objectArrayList.addAll(new ArrayList<>(Arrays.asList(objectArrayToAdd)));
+        Object[] answer = new Integer[objectArrayList.size()];
+        for (int i = 0; i < objectArrayList.size(); i++) {
+            answer[i] = objectArrayList.get(i);
+        }
+        return answer;
     }
 }

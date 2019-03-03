@@ -61,8 +61,8 @@ public class MultiplesDeleter {
     public Integer[] deleteMultiplesOfN(Integer[] ints, int multiple) {
         List<Integer> answer = new ArrayList<>();
         for (int i = 0; i < ints.length; i++) {
-            if (ints[i] % multiple == 0){
-                answer.remove(ints[i]);
+            if (ints[i] % multiple != 0){
+                answer.add(ints[i]);
             }
         }
         return answer.toArray(new Integer[0]);
